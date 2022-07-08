@@ -24,14 +24,14 @@ app.get("/api/hello", function (req, res) {
   res.json({greeting: 'hello API'});
 });
 
-app.get("/api/:timestamp", function(req, res){
-  const {timestamp} = req.params;
+app.get("/api/:date?", function(req, res){
+  const {date} = req.params;
 
-  const data = new Date(timestamp*1000);
+  const data = new Date(date*1000);
   console.log(data);
   if(data != "Invalid Date") {
     res.status(201).json({
-      "unix": Number(timestamp) , 
+      "unix": Number(date) , 
       "utc": data.toUTCString()
     });
     return;
