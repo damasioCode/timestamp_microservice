@@ -24,7 +24,7 @@ app.get("/api/hello", function (req, res) {
   res.json({greeting: 'hello API'});
 });
 
-app.get('/api/timestamp/:input', (req, res) => {
+app.get('/api/:input', (req, res) => {
 
   let {input} = req.params;
 
@@ -45,7 +45,7 @@ app.get('/api/timestamp/:input', (req, res) => {
   response.json(responseObject);
 });
 
-app.get('/api/timestamp', (req, res) => {
+app.get('/api', (req, res) => {
 
   responseObject['unix'] = new Date().getTime();
   responseObject['utc'] = new Date().toUTCString();
